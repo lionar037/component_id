@@ -23,28 +23,30 @@ int main() {
 
     // Crear 10 PositionComponent
     for (int a = 0; a < 10; ++a) {
-        positionComponents.emplace_back(rand() % 256); // Cambiar rand(255) a rand() % 256
+        positionComponents.emplace_back(ENTITY_ID_ENEMY); // Cambiar rand(255) a rand() % 256
     }
 
     // Crear 10 VelocityComponent
     for (int a = 0; a < 10; ++a) {
-        velocityComponents.emplace_back(rand() % 256); // Cambiar rand(255) a rand() % 256
+        velocityComponents.emplace_back(ENTITY_ID_ARMS); // Cambiar rand(255) a rand() % 256
     }
 
     // Mostrar los IDs de PositionComponent
     std::cout << "PositionComponent IDs:" << std::endl;
-    for (const auto& pc : positionComponents) {
-        std::cout << "Class ID: " << PositionComponent::classID 
-                  << ", Instance ID: " << pc.ComponentID 
-                  << ", Entity ID: " << pc.entityID << std::endl;
+    for (const auto& enemy : positionComponents) {
+                std::cout 
+                    << " Entity ID: " << enemy.entityID 
+                    << " Instance ID: " << enemy.ComponentID           
+                    << std::endl;
     }
 
     // Mostrar los IDs de VelocityComponent
-    std::cout << "VelocityComponent IDs:" << std::endl;
-    for (const auto& vc : velocityComponents) {
-        std::cout << "Class ID: " << VelocityComponent::classID 
-                  << ", Instance ID: " << vc.ComponentID 
-                  << ", Entity ID: " << vc.entityID << std::endl;
+    std::cout << "\nVelocityComponent IDs:" << std::endl;
+    for (const auto& arm : velocityComponents) {
+        std::cout 
+                    << " Entity ID: " << arm.entityID 
+                    << " Instance ID: " << arm.ComponentID           
+                    << std::endl;
     }
 
     return 0;

@@ -6,12 +6,11 @@ OBJ=obj
 
 # Bandera del compilador y las librerías
 CC=g++
-#LDFLAGS= -lbcm2835 -lrt -lSSD1306_OLED_RPI -lmpg123 -lao -pthread
 LDFLAGS= -lbcm2835
 STD=-std=c++17
 
 # Buscar todos los directorios en 'include' y agregarles '-I'
-INCLUDES = $(shell find include -type d -exec echo -I{} \;)
+INCLUDES = $(shell find include/ -type d -exec echo -I{} \;)
 
 # Flags del compilador, incluyendo los directorios encontrados y el estándar de C++
 CFLAGS = $(STD) $(INCLUDES) -c -Wall -Wextra 
@@ -20,7 +19,7 @@ CFLAGS = $(STD) $(INCLUDES) -c -Wall -Wextra
 MD=mkdir
 
 # Archivos fuente y objetos
-SRCS = $(wildcard $(SRC)/*.cpp $(SRC)/*.cpp)
+SRCS = $(wildcard $(SRC)/*.cpp $(SRC)/*/*.cpp)
 OBJS = $(patsubst $(SRC)/%.cpp, $(OBJ)/%.o, $(SRCS))
 
 # Directorio de binarios
